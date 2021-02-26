@@ -7,7 +7,7 @@ pool:
 variables:
   imageName: azure-pipelines-canary-k8s/sampleapp
   dockerRegistryConnection: azure-pipelines-canary-acr
-  imageRepository: azure-pipelines-canary-acr
+  imageRepository: azure-pipelines-canary-k8s/sampleapp
   containerRegistry: ronvincentorg.azurecr.io 
   tag: '$(Build.BuildId)'
 
