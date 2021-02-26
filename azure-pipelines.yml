@@ -35,18 +35,18 @@ stages:
       - upload: misc
         artifact: misc
 
-- stage: DeployCanary
-  displayName: Deploy canary
-  dependsOn: Build
-  condition: succeeded()
+ - stage: DeployCanary
+   displayName: Deploy canary
+   dependsOn: Build
+   condition: succeeded()
 
-  jobs:
-  - deployment: Deploycanary
-    displayName: Deploy canary
-    pool:
-      vmImage: Ubuntu-16.04
-    environment: 'akscanary.canarydemo'
-    strategy:
+   jobs:
+   - deployment: Deploycanary
+     displayName: Deploy canary
+     pool:
+       vmImage: Ubuntu-16.04
+     environment: 'akscanary.canarydemo'
+     strategy:
       runOnce:
         deploy:
           steps:
