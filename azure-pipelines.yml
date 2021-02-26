@@ -55,7 +55,7 @@ stages:
             displayName: Create imagePullSecret
             inputs:
               action: createSecret
-              secretName: azure-pipelines-canary-acr
+              secretName: canarySecret
               dockerRegistryEndpoint: azure-pipelines-canary-acr
 
           - task: KubernetesManifest@0
@@ -68,7 +68,7 @@ stages:
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
-              imagePullSecrets: azure-pipelines-canary-k8s
+              imagePullSecrets: canarySecret
 
           - task: KubernetesManifest@0
             displayName: Deploy Forbio and ServiceMonitor
