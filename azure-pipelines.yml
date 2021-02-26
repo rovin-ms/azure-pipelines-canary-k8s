@@ -5,13 +5,13 @@ pool:
   vmImage: Ubuntu-16.04
 
 variables:
-  imageName: azure-pipelines-canary-k8s
+  imageName: azure-pipelines-canary-k8s/sampleapp
 
 steps:
 - task: Docker@2
   displayName: Build and push image
   inputs:
-    containerRegistry: ronvincentorg.azurecr.io/azure-pipelines-canary-acr #replace with name of your Docker registry service connection
+    containerRegistry: ronvincentorg.azurecr.io #replace with name of your Docker registry service connection
     repository: $(imageName)
     command: buildAndPush
     Dockerfile: app/Dockerfile
