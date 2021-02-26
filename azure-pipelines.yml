@@ -68,7 +68,7 @@ stages:
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
-              imagePullSecrets: azure-pipelines-canary-acr
+              imagePullSecrets: azure-pipelines-canary-k8s
 
           - task: KubernetesManifest@0
             displayName: Deploy Forbio and ServiceMonitor
