@@ -72,10 +72,10 @@ stages:
               kubernetesServiceConnection: azure-pipelines-canary-k8s
               imagePullSecrets: azure-pipelines-canary-k8s
 
-          - task: KubernetesManifest@0
-            displayName: Deploy Forbio and ServiceMonitor
-            inputs:
-              action: 'deploy'
-              kubernetesServiceConnection: azure-pipelines-canary-k8s
-              manifests: |
-                $(Pipeline.Workspace)/misc/*
+#          - task: KubernetesManifest@0
+#            displayName: Deploy Forbio and ServiceMonitor
+#            inputs:
+#              action: 'deploy'
+#              kubernetesServiceConnection: azure-pipelines-canary-k8s
+#              manifests: |
+#                $(Pipeline.Workspace)/misc/*
