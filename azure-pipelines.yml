@@ -55,7 +55,7 @@ stages:
             displayName: Create imagePullSecret
             inputs:
               action: createSecret
-              secretName: azure-pipelines-canary-acr
+              secretName: azure-pipelines-canary-k8s
               dockerRegistryEndpoint: azure-pipelines-canary-k8s
 
           - task: KubernetesManifest@0
