@@ -46,7 +46,7 @@ stages:
      displayName: Deploy canary
      pool:
        vmImage: Ubuntu-16.04
-     environment: 'akscanary.canarydemo'
+     environment: 'akscanary'
      strategy:
       runOnce:
         deploy:
@@ -55,8 +55,8 @@ stages:
             displayName: Create imagePullSecret
             inputs:
               action: createSecret
-              secretName: azure-pipelines-canary-k8s
-              dockerRegistryEndpoint: azure-pipelines-canary-k8s
+              secretName: azure-pipelines-canary-acr
+              dockerRegistryEndpoint: azure-pipelines-canary-acr
 
           - task: KubernetesManifest@0
             displayName: Deploy to Kubernetes cluster
